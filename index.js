@@ -13,6 +13,8 @@ let films = Array(
 
 )
 
+
+
 const getAllFilms = (_, res) => {
     res.status(200).json({ok:true,data:films,message:"ok success"})
 }
@@ -85,6 +87,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 //list route
+app.get('/', (req, res) => res.json('Api Running!'))
 app.get('/films', getAllFilms)
 app.get('/films/:id', getFilmsById)
 app.post('/films', createFilms)
